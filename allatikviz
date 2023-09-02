@@ -1,0 +1,32 @@
+pontszam = 0
+print("Allati kviz!")
+
+def ellenőrizd(valasz, helyes_valasz):
+    probak_szama = 0
+    van_e_meg_lehetoseg = True
+    while van_e_meg_lehetoseg and probak_szama<3:
+        
+        global pontszam
+        if valasz.lower() == helyes_valasz.lower(): 
+            print('Helyes valasz')
+            pontszam = pontszam + 1
+            van_e_meg_lehetoseg = False
+        else:
+            print('helytelen valasz')
+            if probak_szama < 2:
+                valasz = input("sajnalom, helytelen valasz, probalja ujra: ")
+            probak_szama = probak_szama+1
+
+
+
+valasz_1 = input("Milyen medve el az Eszaki-sarkon?: ")
+ellenőrizd(valasz_1, "jeges medve")
+print("A jo valasz a jeges medve, " + "a pontszamod pedig: " + str(pontszam))
+valasz_2 = input("Melyik a leggyorsabb szárazföldi állat?: ")
+ellenőrizd(valasz_2, "gepard")
+print("A jo valasz a gepard, " + "a pontszamod pedig: " + str(pontszam))
+valasz_3 = input("Melyik a legnagyobb méretű állat?: ")
+ellenőrizd(valasz_3, "zsiraf")
+print("A jo valasz a zsiraf, " + "a pontszamod pedig: " + str(pontszam))
+
+print('A pontszámod ' + str(pontszam))
